@@ -88,7 +88,8 @@ class _MyAppState extends State<MyApp> {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
-            foregroundColor: WidgetStateProperty.all(Colors.black),
+            backgroundColor: WidgetStateProperty.all(Colors.green),
+            foregroundColor: WidgetStateProperty.all(Colors.white),
           ),
         ),
       ),
