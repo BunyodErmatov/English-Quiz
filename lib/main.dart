@@ -80,7 +80,7 @@ class _MyAppState extends State<MyApp> {
       // theme: ThemeData(useMaterial3: false, primarySwatch: Colors.green),
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.green,
+          seedColor: Colors.white,
         ),
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.green,
