@@ -86,6 +86,11 @@ class _MyAppState extends State<MyApp> {
           backgroundColor: Colors.green,
           foregroundColor: Colors.white,
         ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            foregroundColor: WidgetStateProperty.all(Colors.black),
+          ),
+        ),
       ),
       title: "Quiz App",
       home: Scaffold(

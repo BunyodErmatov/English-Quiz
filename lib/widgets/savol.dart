@@ -25,6 +25,9 @@ class Savol extends StatelessWidget {
             fontSize: 25,
           ),
         ),
+        const SizedBox(
+          height: 15,
+        ),
         ElevatedButton(
           onPressed: () => savolgaJavobBerish(
             javoblar[0]["tog'rimi"],
