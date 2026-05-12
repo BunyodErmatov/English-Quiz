@@ -14,6 +14,7 @@ class Natija extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("Natija");
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

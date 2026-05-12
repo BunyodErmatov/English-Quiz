@@ -14,6 +14,7 @@ class Savol extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("Savol");
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -22,7 +23,7 @@ class Savol extends StatelessWidget {
           savol,
           style: const TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: 25,
+            fontSize: 30,
           ),
         ),
         const SizedBox(

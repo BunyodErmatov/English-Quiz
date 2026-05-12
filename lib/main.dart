@@ -6,15 +6,42 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
-  State<StatefulWidget> createState() {
-    return _MyAppState();
+  Widget build(BuildContext context) {
+    print("Asosiy");
+    return MaterialApp(
+      // theme: ThemeData(useMaterial3: false, primarySwatch: Colors.green),
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.white,
+        ),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.green,
+          foregroundColor: Colors.white,
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.green,
+            foregroundColor: Colors.white,
+          ),
+        ),
+      ),
+      title: "Quiz App",
+      home: const Quiz(),
+    );
   }
 }
 
-class _MyAppState extends State<MyApp> {
+class Quiz extends StatefulWidget {
+  const Quiz({super.key});
+
+  @override
+  State<Quiz> createState() => _QuizState();
+}
+
+class _QuizState extends State<Quiz> {
   List<Map<String, dynamic>> savolVaJavob = [
     {
       'savol': "1.What is ______ name",
@@ -60,11 +87,11 @@ class _MyAppState extends State<MyApp> {
   void answerQuestion(bool result) {
     setState(() {
       nowQuestionNumber++;
-    });
 
-    if (result) {
-      natija++;
-    }
+      if (result) {
+        natija++;
+      }
+    });
   }
 
   void qaytadanBoshlash() {
@@ -76,39 +103,21 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      // theme: ThemeData(useMaterial3: false, primarySwatch: Colors.green),
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.white,
-        ),
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.green,
-          foregroundColor: Colors.white,
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ButtonStyle(
-            backgroundColor: WidgetStateProperty.all(Colors.green),
-            foregroundColor: WidgetStateProperty.all(Colors.white),
-          ),
-        ),
+    print("Quiz");
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text("Ingiliz Tili Quiz"),
       ),
-      title: "Quiz App",
-      home: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text("Ingiliz Tili Quiz"),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: nowQuestionNumber < savolVaJavob.length
-              ? Savol(
-                  savolVaJavob[nowQuestionNumber]['savol'],
-                  savolVaJavob[nowQuestionNumber]['javob'],
-                  answerQuestion,
-                )
-              : Natija(natija, savolVaJavob.length, qaytadanBoshlash),
-        ),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: nowQuestionNumber < savolVaJavob.length
+            ? Savol(
+                savolVaJavob[nowQuestionNumber]['savol'],
+                savolVaJavob[nowQuestionNumber]['javob'],
+                answerQuestion,
+              )
+            : Natija(natija, savolVaJavob.length, qaytadanBoshlash),
       ),
     );
   }
